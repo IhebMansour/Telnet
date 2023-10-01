@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telnet-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telnet
+  template:
+    metadata:
+      labels:
+        app: telnet
+    spec:
+      containers:
+        - name: telnet-container
+          image: islem1999/telnet-pod:latest
+          ports:
+            - containerPort: 23
+          command: ["sleep"]
+          args: ["infinity"]
+
